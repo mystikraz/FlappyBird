@@ -1,0 +1,40 @@
+﻿@using System.Timers;
+@implements IDisposable
+
+<div class="Timer">
+    <p>@count</p>
+</div>
+
+@code {
+    [Parameter] public bool IsRunning { get; set; }
+    private int count = 0;
+    Timer timer;
+
+    protected override void OnInitialized()
+    {
+        timer = new Timer();
+        timer.Interval = 1000;
+        timer.Elapsed += TimerOnElapsed;
+        timer.Start();
+    }
+    private void TimerOnElapsed(object sender, ElapsedEventArgs e)
+    {
+        if (IsRunning)
+        {
+            count++;
+            StateHasChanged();
+        }
+        else
+        {
+            count = 0;
+        }
+    }
+
+    public void Dispose()
+    {
+        if (timer != null)
+        {
+            timer.Dispose();
+        }
+    }
+}

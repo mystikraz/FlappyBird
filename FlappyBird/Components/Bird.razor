@@ -2,6 +2,6 @@
 
 @code {
     [Parameter] public BirdModel Model { get; set; }
-    string _birdCss => $"bottom:{Model.DistanceFromGround}px";
+    string _birdCss => $"bottom:{Model.DistanceFromGround}px; left:{Model.DistanceFromLeft}px;";
 
 }

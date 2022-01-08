@@ -59,6 +59,20 @@ namespace FlappyBird.Models
                 Bird.Jump();
             }
         }
+        public void Left()
+        {
+            if (IsRunning)
+            {
+                Bird.Left();
+            }
+        }
+        public void Right()
+        {
+            if (IsRunning)
+            {
+                Bird.Right();
+            }
+        }
         void MoveObjects()
         {
             Bird.Fall(_gravity);
@@ -79,8 +93,9 @@ namespace FlappyBird.Models
 
             if (centeredPipe != null)
             {
-                bool hasCollidedWithBottom = Bird.DistanceFromGround < centeredPipe.GapBottom - 150;
+                bool hasCollidedWithBottom =Bird.DistanceFromGround < centeredPipe.GapBottom - 150;
                 bool hasCollidedWithTop = Bird.DistanceFromGround + 45 > centeredPipe.GapTop - 150;
+                bool hasCollidedWithLeft = Bird.DistanceFromLeft >= centeredPipe.DistanceFromLeft;
                 if (hasCollidedWithBottom || hasCollidedWithTop)
                     GameOver();
             }
