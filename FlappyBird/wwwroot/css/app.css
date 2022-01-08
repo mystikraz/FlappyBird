@@ -1,33 +1,11 @@
 ﻿@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
 
-html, body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-}
-
-a, .btn-link {
-    color: #0366d6;
-}
-
-.btn-primary {
-    color: #fff;
-    background-color: #1b6ec2;
-    border-color: #1861ac;
-}
-
-.content {
-    padding-top: 1.1rem;
+body {
+    display: flex;
 }
 
 .valid.modified:not([type=checkbox]) {
     outline: 1px solid #26b050;
-}
-
-.invalid {
-    outline: 1px solid red;
-}
-
-.validation-message {
-    color: red;
 }
 
 #blazor-error-ui {
@@ -53,25 +31,44 @@ a, .btn-link {
     width: 500px;
     height: 730px;
     position: absolute;
+    left: 80px;
+}
+
+.border-left {
+    width: 80px;
+    height: 790px;
+    position: absolute;
+    background-color: white;
+    z-index: +2;
+}
+
+.border-right {
+    left: 580px;
+    width: 80px;
+    height: 790px;
+    position: absolute;
+    background-color: white;
+    z-index: +2;
 }
 
 .sky {
-    background-color: lightblue;
+    background-image: url('../images/fb-game-background.png');
     width: 500px;
     height: 580px;
     position: absolute;
 }
 
 .ground {
-    background-color: forestgreen;
+    background-image: url('../images/bottom-background.png');
     width: 500px;
     height: 150px;
     position: absolute;
     top: 580px;
+    z-index: +1;
 }
 
 .bird {
-    background-color: yellow;
+    background-image: url('../images/flappy-bird.png');
     width: 60px;
     height: 45px;
     left: 220px;
@@ -79,8 +76,19 @@ a, .btn-link {
 }
 
 .pipe {
-    background-color: black;
+    background-image: url('../images/flappybird-pipe.png');
     width: 60px;
     height: 300px;
     position: absolute;
+}
+
+    .pipe.top {
+        transform: rotate(180deg);
+    }
+
+.Timer {
+    width: 60px;
+    height: 300px;
+    position: absolute;
+    z-index: +2;
 }
